@@ -5,9 +5,11 @@ Given a set of points in the plane. the convex hull of the set is the smallest c
 Below are some examples of how the algorithm works.
 
 ### Demonstration
-
+**10 points**
 ![10 points](10_points.gif) 
+**30 points**
 ![30 points](30_points.gif) 
+**50 points**
 ![50 points](50_points.gif) 
 
 ### Usage
