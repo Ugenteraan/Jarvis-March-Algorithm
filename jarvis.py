@@ -79,6 +79,7 @@ def jarvis_march(points, animation=False):
 	p = leftmost_point_index
 
 	hull_list = []
+	
 	#append the leftmost point as it is surely one of the points in the convex polygon
 	hull_list.append(points[p])
 
@@ -91,13 +92,13 @@ def jarvis_march(points, animation=False):
 
 	while True:
 
-		#initialize a point to start the comparing process
+		#initialize a second point to start the comparing process
 		q = (p + 1) % num_of_points
 
 		#iterate through all points
 		for r in range(num_of_points):
 
-			#skip the current loop if r == p
+			#skip the current loop if it's the leftmost point
 			if r == p:
 				continue
 
@@ -135,7 +136,7 @@ def jarvis_march(points, animation=False):
 
 def gen_points(num):
 	'''
-	Randomly generate num points
+	Randomly generate num number of points
 	'''
 
 	points = []
@@ -151,7 +152,7 @@ def gen_points(num):
 
 def draw_lines(im, points):
 	'''	
-	draw the lines on the image as per the hull_list generated from the algo.
+	Draw the lines on the image as per the hull_list generated from the algo.
 	'''
 
 	img = im.copy()
@@ -172,8 +173,8 @@ def draw_lines(im, points):
 
 if __name__ == '__main__':
 
-	points = gen_points(args.num_of_points)
-	hull_list = jarvis_march(points, args.visualize)
+	points = gen_points(args.num_of_points) #generate points
+	hull_list = jarvis_march(points, args.visualize) #run the algorithm using the generated pointss
 
 	if args.save:
 		#save the final image
